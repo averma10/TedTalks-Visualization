@@ -1,0 +1,116 @@
+---
+title: "Ted Talks"
+author: "By: Anuj Verma"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+---
+
+```{r global, include=FALSE}
+library(knitr)
+setwd("/Users/Gurpreet/Documents/Coding practices/Viz (R)")
+read_chunk("Tedtalk_project.R")
+knitr::opts_chunk$set(echo = TRUE)
+```    
+
+
+<style>
+.section.sidebar{
+  top: 61px;
+  border-bottom: 10px solid#ececec;
+  border-left: 10px solid#ececec;
+  background-color: rgba(255,255,255,1);
+}
+</style>
+
+```{r 1a, results='hide',warning=FALSE,message=FALSE,include=FALSE}
+
+```
+
+```{r 1b, results='hide',warning=FALSE,message=FALSE,include=FALSE}
+```
+
+```{r 1c, results='hide',warning=FALSE,message=FALSE,include=FALSE}
+```
+
+Number of Talks {data-navmenu="Analysis"}
+====================================
+
+Column {.sidebar data-width=1050}
+-------------------------------------
+    
+### Heatmap: Talks over Months each Year since 1972-2017 {.no-padding}
+```{r 2,include=FALSE}
+```
+```{r 3,include=FALSE}
+```
+
+```{r 4,echo=FALSE,fig.width=10,fig.asp=.65}
+```
+
+
+Row {data-height=350}{.tabset}
+-------------------------------------
+   
+### Talks over the Months {.no-padding}
+
+```{r 2,echo=FALSE,fig.height=5,fig.width=10}
+```   
+ 
+### Talks over the Years {.no-padding}
+    
+```{r 3,echo=FALSE,fig.height=5,fig.width=10}
+```
+
+Row {data-height=650}
+--------------------------------------
+### Graph Interpretation
+The heatmap shows the summary of talks for months and years. It is created using heatmap.2 function of gplots package. The color change is described by the number of talks. The dark purple means more talks and shading purple/sand color denotes less number of talks as clearly labeled in the legend. We can see that February is the most popular month for talks with high number of talks per year while January and August are least popular months with least number of talks per year (See the exploratory bar graph under 'Talks over the Months' tab). High talks in February are because the official ted conferences are held in this month. The high number of talks for few other months are because of the world-wide ted conferences. We see more purple color towards right of the graph since number of talks delivered per year are more. From the exploratory line graph under 'Talks over the Years' tab, we can see that the number of talks from 2008 to 2009 increased more than two-folds and since then the number is in similar range. The drop in number of talks in 2017 may be caused by data insufficiency.
+
+Popular Topics {.storyboard data-navmenu="Analysis"}
+===========================================
+
+### Word Cloud of Popular Topics {data-commentary-width=400}
+```{r 5,echo=FALSE}
+```
+
+*** 
+#### Graph Interpretation
+The word cloud shows the popular tags in Ted conferences.It is created in R with the help of 'wordcloud' R package. The cloud was created with using the text parser on 'Tags' column. The text parser created a text file of all the tags and a frequency table for the tags was created from this text file.  The cloud contains only those tags which were used more than 200 times during the Ted history. The font is bigger for higher frequency of use and smaller for lower frequency of use. The word cloud analysis was taken one step further by generating the dataset for most frequent topics (displayed below). Only top 10 tags were picked from this and Tedx tags were removed since they represent the general name of event and not the topics.
+
+#### Data table for words-frequencies
+
+```{r 5a,echo=FALSE}
+```
+
+
+### Stream Graph of Top 10 Topics {data-commentary-width=400}
+```{r 7,echo=FALSE}
+```
+
+*** 
+
+#### Graph Interpretation
+The above stream graph visualization depicts the use of tags/topics over the years (1972-2017). It is made using the streamgraph html widget package available at github. This is an interactive graph and user can hover mouse on the parts of the graph to see the number of talks in the corresponding year related to the topic. User can also select a tag from the Popular tags drop down; this will highlight the selected tag's color band in the graph. The stream graph only displays the popularity of only Top 9 topics. Each topic is represented by different color and is labeled accordingly. The width of the color band represents the number of talks on that topic in corresponding year. A sharp increase in use of these topics can be seen at 2009 (as analysed in previous heatmap). This is simply because the total number of ted conferences increased during this period. The graph suggests that the most number of talks were from 2009-2013 since the peak is highest for these years. The topics Technology, Science, Global, Design, Culture and Business were discussed most. One interesting topic to observe is 'Change'. It was not much popular throughout the Ted history, but it was certainly discussed most in 2016. The nature of change is not clear, and further analysis can be performed to know whether it is related to climate change, society change or some other change.
+
+
+<style>
+
+    .storyboard-nav .sbframelist {
+        margin: 0 auto;
+        width: 94%;
+        height: 50px;
+        overflow: hidden;
+        text-shadow: none;
+        margin-bottom: 8px;
+    }
+
+    .storyboard-nav .sbnext, .storyboard-nav .sbprev {
+        float: left;
+        width: 2%;
+        height: 50px;
+        font-size: 50px;
+    }
+
+    </style>
